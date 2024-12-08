@@ -1,0 +1,35 @@
+[
+  {
+    "email": "testuser1@gmail.com",
+    "phone": "1234567890",
+    "isVerified": false
+  },
+  {
+    "email": "testuser2@gmail.com",
+    "phone": "0987654321",
+    "isVerified": false
+  },
+  {
+    "email": "mail@gorakhjoshi.com",
+    "phone": "+9779860044172",
+    "isVerified": true,
+    "otp": null,
+    "otpExpiry": null
+  },
+  {
+    "email": "gorakh626@gmail.com",
+    "phone": "+9779843097671",
+    "isVerified": false,
+    "otp": "975200",
+    "otpExpiry": 1733631142619
+  },
+  {
+    "email": "bitpointserver@gmail.com",
+    "phone": "+9779843097671",
+    "emailOtp": "915322",
+    "phoneOtp": "680283",
+    "otpExpiry": 1733631510662,
+    "emailVerified": false,
+    "phoneVerified": false
+  }
+]
