@@ -2,9 +2,18 @@
   {
     "email": "mail@gorakhjoshi.com",
     "phone": "+9779843097671",
-    "emailOtp": "279070",
-    "phoneOtp": "992444",
-    "otpExpiry": 1733670402989,
+    "emailOtp": "750126",
+    "phoneOtp": "745593",
+    "otpExpiry": 1733672137034,
+    "emailVerified": false,
+    "phoneVerified": false
+  },
+  {
+    "email": "mail@gorakhjoshi.com",
+    "phone": "+19843097671",
+    "emailOtp": "986626",
+    "phoneOtp": "360691",
+    "otpExpiry": 1733672249687,
     "emailVerified": false,
     "phoneVerified": false
   }

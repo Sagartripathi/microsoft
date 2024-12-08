@@ -107,8 +107,8 @@ app.post('/send-otp', async (req, res) => {
     console.log(`Email OTP: ${emailOtp}, Phone OTP: ${phoneOtp}`)
     res.status(200).json({ message: 'OTP sent to email and phone.' })
   } catch (error) {
-    console.error('Error sending OTP:', error)
-    res.status(500).json({ message: 'Server error while sending OTP.' })
+    console.error('Error sending OTP:', error.message)
+    res.status(500).json({ message: error.message })
   }
 })
 
@@ -151,7 +151,7 @@ app.post('/verify-otp', async (req, res) => {
     })
   } catch (error) {
     console.error('Error verifying OTP:', error)
-    res.status(500).json({ message: 'Server error while verifying OTP.' })
+    res.status(500).json({ message: 'Error verifying OTP:', error })
   }
 })
 

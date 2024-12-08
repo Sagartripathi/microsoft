@@ -16,6 +16,7 @@ const App = () => {
     emailVerified: false,
   })
   const [statusMessage, setStatusMessage] = useState('')
+  const [errors, setErrors] = useState({}) // New state for form validation errors
 
   const formStyle = {
     fontFamily: 'Arial, sans-serif',
@@ -37,9 +38,15 @@ const App = () => {
   const inputStyle = {
     width: '100%',
     padding: '10px',
-    marginBottom: '15px',
+    marginBottom: '5px',
     border: '1px solid #ddd',
     borderRadius: '4px',
+  }
+
+  const errorStyle = {
+    color: 'red',
+    marginBottom: '10px',
+    fontSize: '12px',
   }
 
   const buttonStyle = {
@@ -55,6 +62,7 @@ const App = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
+    setErrors((prev) => ({ ...prev, [name]: '' })) // Clear error when user types
   }
 
   const handleOtpInput = (e) => {
@@ -62,9 +70,28 @@ const App = () => {
     setOtpData({ ...otpData, [name]: value })
   }
 
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required.'
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required.'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
   const sendOtp = async (e) => {
     e.preventDefault()
     setStatusMessage('')
+
+    if (!validateForm()) {
+      return
+    }
 
     try {
       const response = await fetch('http://localhost:8080/send-otp', {
@@ -176,7 +203,7 @@ const App = () => {
             <label htmlFor="phone" style={labelStyle}>
               Phone Number
             </label>
-            <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '5px' }}>
               <select id="ext" name="ext" style={{ ...inputStyle, flex: '1' }} value={formData.ext} onChange={handleInputChange}>
                 <option value="+1">+1</option>
                 <option value="+44">+44</option>
@@ -185,11 +212,13 @@ const App = () => {
               </select>
               <input type="tel" id="phone" name="phone" placeholder="123-456-7890" style={{ ...inputStyle, flex: '3' }} value={formData.phone} onChange={handleInputChange} />
             </div>
+            {errors.phone && <div style={errorStyle}>{errors.phone}</div>}
 
             <label htmlFor="email" style={labelStyle}>
               Email
             </label>
             <input type="email" id="email" name="email" placeholder="Enter your email address" style={inputStyle} value={formData.email} onChange={handleInputChange} />
+            {errors.email && <div style={errorStyle}>{errors.email}</div>}
 
             <button type="submit" style={buttonStyle}>
               Send OTP
@@ -225,8 +254,4 @@ const App = () => {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+root.render(<App />)
