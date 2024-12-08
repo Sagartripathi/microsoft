@@ -1,0 +1,16 @@
+{
+  "name": "microsoft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "concurrently \"cd backend && npm i\" \"cd microsoft && npm i\"",
+    "start": "concurrently \"cd backend && npm start\" \"cd microsoft && npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

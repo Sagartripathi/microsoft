@@ -94,28 +94,55 @@ const App = () => {
     setStatusMessage('')
 
     try {
-      const response = await fetch('http://localhost:8080/verify-otp', {
+      // Verify phone OTP
+      const phoneResponse = await fetch('http://localhost:8080/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: formData.email,
           phone: `${formData.ext}${formData.phone}`,
-          phoneOtp: otpData.phoneOtp,
-          emailOtp: otpData.emailOtp,
+          otp: otpData.phoneOtp,
+          type: 'phone', // Specify the type
         }),
       })
 
-      if (response.ok) {
-        const result = await response.json()
-        setVerificationStatus({
-          phoneVerified: result.phoneVerified,
-          emailVerified: result.emailVerified,
-        })
-        setStatusMessage('Verification complete!')
-      } else {
-        const error = await response.json()
-        setStatusMessage(error.message || 'Failed to verify OTPs.')
+      const phoneResult = await phoneResponse.json()
+
+      if (!phoneResponse.ok) {
+        setStatusMessage(phoneResult.message || 'Failed to verify phone OTP.')
+        return
       }
+
+      setVerificationStatus((prev) => ({
+        ...prev,
+        phoneVerified: phoneResult.phoneVerified,
+      }))
+
+      // Verify email OTP
+      const emailResponse = await fetch('http://localhost:8080/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          phone: `${formData.ext}${formData.phone}`,
+          otp: otpData.emailOtp,
+          type: 'email', // Specify the type
+        }),
+      })
+
+      const emailResult = await emailResponse.json()
+
+      if (!emailResponse.ok) {
+        setStatusMessage(emailResult.message || 'Failed to verify email OTP.')
+        return
+      }
+
+      setVerificationStatus((prev) => ({
+        ...prev,
+        emailVerified: emailResult.emailVerified,
+      }))
+
+      setStatusMessage('Verification complete!')
     } catch (err) {
       console.error(err)
       setStatusMessage('Error connecting to the server.')
@@ -173,12 +200,12 @@ const App = () => {
             <label htmlFor="phoneOtp" style={labelStyle}>
               Phone OTP
             </label>
-            <input type="text" id="phoneOtp" name="phoneOtp" placeholder="Enter the OTP sent to your phone" style={inputStyle} value={otpData.phoneOtp} onChange={handleOtpInput} />
+            <input id="phoneOtp" name="phoneOtp" placeholder="Enter the OTP sent to your phone" style={inputStyle} value={otpData.phoneOtp} onChange={handleOtpInput} />
 
             <label htmlFor="emailOtp" style={labelStyle}>
               Email OTP
             </label>
-            <input type="text" id="emailOtp" name="emailOtp" placeholder="Enter the OTP sent to your email" style={inputStyle} value={otpData.emailOtp} onChange={handleOtpInput} />
+            <input id="emailOtp" name="emailOtp" placeholder="Enter the OTP sent to your email" style={inputStyle} value={otpData.emailOtp} onChange={handleOtpInput} />
 
             <button type="submit" style={buttonStyle}>
               Verify OTPs
