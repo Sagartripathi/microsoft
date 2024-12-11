@@ -38,5 +38,53 @@
     "phoneOtp": "681418",
     "emailVerified": false,
     "phoneVerified": false
+  },
+  {
+    "email": "sagartripathi@takeo.com",
+    "phone": "+9779860044172",
+    "emailOtp": "125112",
+    "phoneOtp": "625487",
+    "emailVerified": false,
+    "phoneVerified": false
+  },
+  {
+    "email": "gorakh626@gmail.com",
+    "phone": "+9779843097671",
+    "emailOtp": "470136",
+    "phoneOtp": "731668",
+    "emailVerified": false,
+    "phoneVerified": false
+  },
+  {
+    "email": "mail@gorakhjoshi.com",
+    "phone": "+9779864004172",
+    "emailOtp": "255509",
+    "phoneOtp": "342753",
+    "emailVerified": false,
+    "phoneVerified": false
+  },
+  {
+    "email": "mail@gorakhjoshi.com",
+    "phone": "+9779860044172",
+    "emailOtp": "700673",
+    "phoneOtp": "256306",
+    "emailVerified": true,
+    "phoneVerified": true
+  },
+  {
+    "email": "sagartripathi@takeo.ai",
+    "phone": "+9779860044172",
+    "emailOtp": "270997",
+    "phoneOtp": "608404",
+    "emailVerified": true,
+    "phoneVerified": true
+  },
+  {
+    "email": "tripathisagar1997@gmail.com",
+    "phone": "+9779860044172",
+    "emailOtp": "404741",
+    "phoneOtp": "452893",
+    "emailVerified": true,
+    "phoneVerified": true
   }
 ]
