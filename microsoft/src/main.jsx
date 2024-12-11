@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 
 const App = () => {
@@ -129,7 +129,7 @@ const App = () => {
           email: formData.email,
           phone: `${formData.ext}${formData.phone}`,
           otp: otpData.phoneOtp,
-          type: 'phone', // Specify the type
+          type: 'phone',
         }),
       })
 
@@ -153,7 +153,7 @@ const App = () => {
           email: formData.email,
           phone: `${formData.ext}${formData.phone}`,
           otp: otpData.emailOtp,
-          type: 'email', // Specify the type
+          type: 'email',
         }),
       })
 

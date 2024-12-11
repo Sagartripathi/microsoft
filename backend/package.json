@@ -11,11 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vonage/server-sdk": "^3.19.2",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "nodemailer": "^6.9.16",
     "twilio": "^5.3.7"
   },
-  "devDependencies": {},
   "description": ""
 }

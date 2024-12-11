@@ -1,19 +1,41 @@
 [
   {
     "email": "mail@gorakhjoshi.com",
-    "phone": "+9779843097671",
-    "emailOtp": "750126",
-    "phoneOtp": "745593",
-    "otpExpiry": 1733672137034,
-    "emailVerified": false,
-    "phoneVerified": false
+    "phone": "+9779862207234‬",
+    "emailOtp": "362311",
+    "phoneOtp": "834689",
+    "emailVerified": true,
+    "phoneVerified": true
   },
   {
     "email": "mail@gorakhjoshi.com",
-    "phone": "+19843097671",
-    "emailOtp": "986626",
-    "phoneOtp": "360691",
-    "otpExpiry": 1733672249687,
+    "phone": "+9779843097671",
+    "emailOtp": "983969",
+    "phoneOtp": "184933",
+    "emailVerified": true,
+    "phoneVerified": true
+  },
+  {
+    "email": "mail@gorakhjoshi.com",
+    "phone": "+9779843097671",
+    "emailOtp": "774505",
+    "phoneOtp": "510426",
+    "emailVerified": true,
+    "phoneVerified": true
+  },
+  {
+    "email": "mail@gorakhjoshi.com",
+    "phone": "+9779843097671",
+    "emailOtp": "105326",
+    "phoneOtp": "695267",
+    "emailVerified": true,
+    "phoneVerified": true
+  },
+  {
+    "email": "mail@gorakhjoshi.com",
+    "phone": "+9779843097671",
+    "emailOtp": "563066",
+    "phoneOtp": "681418",
     "emailVerified": false,
     "phoneVerified": false
   }
